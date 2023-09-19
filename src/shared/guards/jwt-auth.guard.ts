@@ -2,7 +2,7 @@ import {
   ExecutionContext,
   HttpStatus,
   Injectable,
-  UnauthorizedException,
+  UnauthorizedException
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { Observable } from 'rxjs';
@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class JwtAuthGuard extends AuthGuard('jwt') {
   canActivate(
-    context: ExecutionContext,
+    context: ExecutionContext
   ): boolean | Promise<boolean> | Observable<boolean> {
     return super.canActivate(context);
   }
@@ -20,12 +20,12 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
     user: any,
     info: any,
     context: ExecutionContext,
-    status?: any,
+    status?: any
   ): TUser {
     if (info?.message)
       throw new UnauthorizedException({
         message: info.message,
-        status: HttpStatus.UNAUTHORIZED,
+        status: HttpStatus.UNAUTHORIZED
       });
 
     return super.handleRequest(err, user, info, context, status);
