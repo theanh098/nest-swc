@@ -1,20 +1,39 @@
-import { eq } from "drizzle-orm";
 import { pipe } from "fp-ts/function";
+import * as O from "fp-ts/Option";
 import * as TE from "fp-ts/TaskEither";
 
-import { Database } from "@shared/database";
-import { InjectDb } from "@shared/decorators/database.inject";
+import { Database } from "@root/shared/database";
+import { InjectDb } from "@root/shared/decorators/database.decorator";
+import type { DatabaseQueryError } from "@root/shared/errors/common/DatabaseQueryError";
+import { databaseQueryError } from "@root/shared/errors/common/DatabaseQueryError";
+import type { DatabaseQueryNotFoundError } from "@root/shared/errors/common/DatabaseQueryNotFoundError";
+import { databaseQueryNotFoundError } from "@root/shared/errors/common/DatabaseQueryNotFoundError";
 
-import { country } from "../models/country.model";
+import type { Country } from "../models/country.model";
 
 export class CountryRepository {
   constructor(@InjectDb() private db: Database) {}
 
-  public findById(id: number) {
+  public findById(
+    id: number
+  ): TE.TaskEither<DatabaseQueryNotFoundError | DatabaseQueryError, Country> {
     return pipe(
       TE.tryCatch(
-        () => this.db.select().from(country).where(eq(country.id, id)),
-        err => err
+        () =>
+          this.db.query.country.findFirst({
+            where: (cols, opts) => opts.eq(cols.id, id)
+          }),
+        err => databaseQueryError(err)
+      ),
+      TE.chainW(data =>
+        pipe(
+          data,
+          O.fromNullable,
+          O.match(
+            () => TE.left(databaseQueryNotFoundError("id", "country", id)),
+            city => TE.right(city)
+          )
+        )
       )
     );
   }

@@ -18,8 +18,7 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "~/*": ["src/*"],
-      "@shared/*": ["src/shared/*"]
+      "@root/*": ["src/*"]
     }
   }
 }

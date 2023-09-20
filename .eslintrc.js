@@ -35,6 +35,9 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/no-unused-expressions": "warn",
     "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/consistent-type-exports": "error",
+    "@typescript-eslint/no-import-type-side-effects": "error",
+    "@typescript-eslint/consistent-type-imports": "error",
     "@cspell/spellchecker": [
       "error",
       { customWordListFile: "./cspell-custom.txt" }
@@ -45,8 +48,8 @@ module.exports = {
         newlinesBetween: "always",
         groups: [
           "module",
-          ["/^@shared/", "/^~/"],
-          ["parent", "sibling", "type"]
+          ["/^@root/"],
+          ["parent", "sibling", "index", "type"]
         ],
         alphabetize: {
           order: "asc",

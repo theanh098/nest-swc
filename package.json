@@ -1,8 +1,8 @@
 {
   "name": "nest-swc",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "nestjs functional programing style",
+  "author": "theanh098",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -21,7 +21,7 @@
     "db:push": "drizzle-kit push:pg",
     "db:pull": "drizzle-kit introspect:pg",
     "db:migrate": "drizzle-kit generate:pg",
-    "db:sync": "node dist/shared/database/migrate.script"
+    "db:sync": "pnpm run build && node dist/shared/database/migrate.script"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
