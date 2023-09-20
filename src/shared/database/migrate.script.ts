@@ -1,21 +1,26 @@
-import { drizzle } from 'drizzle-orm/node-postgres';
-import { migrate } from 'drizzle-orm/node-postgres/migrator';
-import { Client } from 'pg';
+import { drizzle } from "drizzle-orm/node-postgres";
+import { migrate } from "drizzle-orm/node-postgres/migrator";
+import { Client } from "pg";
 
 async function main() {
   const client = new Client({
-    database: 'drizzle_city',
-    host: 'localhost',
+    database: "drizzle_city",
+    host: "localhost",
     port: 5432,
-    password: 'vitaminc',
-    user: 'postgres'
+    password: "vitaminc",
+    user: "postgres"
   });
-
   await client.connect();
-
   const db = drizzle(client);
-
-  await migrate(db, { migrationsFolder: 'drizzle' });
+  await migrate(db, { migrationsFolder: "drizzle" });
 }
 
-main();
+main()
+  .then(() => {
+    console.info("schema was sync");
+    process.exit();
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit();
+  });

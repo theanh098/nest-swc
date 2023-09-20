@@ -1,1 +1,1 @@
-export const DATABASE: unique symbol = Symbol('DATABASE');
+export const DATABASE: unique symbol = Symbol("DATABASE");

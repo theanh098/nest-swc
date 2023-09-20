@@ -1,8 +1,12 @@
-import { NodePgDatabase, drizzle } from 'drizzle-orm/node-postgres';
-import { Pool, PoolConfig } from 'pg';
-import { city, cityCountryRelations } from '@database/models/city.model';
-import { country, countryCityRelations } from '@database/models/country.model';
-import { pgSchema } from 'drizzle-orm/pg-core';
+import { NodePgDatabase, drizzle } from "drizzle-orm/node-postgres";
+import { pgSchema } from "drizzle-orm/pg-core";
+import { Pool, PoolConfig } from "pg";
+
+import { city, cityCountryRelations } from "@shared/database/models/city.model";
+import {
+  country,
+  countryCityRelations
+} from "@shared/database/models/country.model";
 
 const schema = {
   city,
@@ -11,7 +15,7 @@ const schema = {
   countryCityRelations
 };
 
-export const drizzleSchema = pgSchema('drizzle');
+export const drizzleSchema = pgSchema("drizzle");
 
 export type Database = NodePgDatabase<typeof schema>;
 

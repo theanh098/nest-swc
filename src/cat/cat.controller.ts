@@ -1,8 +1,10 @@
-import { Controller, UseGuards } from '@nestjs/common';
-import { CatService } from './cat.service';
-import { JwtAuthGuard } from '@guards/jwt-auth.guard';
+import { Controller, UseGuards } from "@nestjs/common";
 
-@Controller('cat')
+import { JwtAuthGuard } from "@shared/guards/jwt-auth.guard";
+
+import { CatService } from "./cat.service";
+
+@Controller("cat")
 @UseGuards(JwtAuthGuard)
 export class CatController {
   constructor(private readonly catService: CatService) {}

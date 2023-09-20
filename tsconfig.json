@@ -19,11 +19,7 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "~/*": ["src/*"],
-      "@guards/*": ["src/shared/guards/*"],
-      "@validators/*": ["src/shared/validators/*"],
-      "@decorators/*": ["src/shared/decorators/*"],
-      "@database/*": ["src/shared/database/*"],
-      "@constants/*": ["src/shared/constants/*"]
+      "@shared/*": ["src/shared/*"]
     }
   }
 }

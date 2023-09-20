@@ -1,11 +1,9 @@
-import { Injectable } from '@nestjs/common';
-import { Database } from '..';
-import { InjectDb } from '@decorators/database.inject';
-import { City, city } from '../models/city.model';
-import { pipe } from 'fp-ts/function';
-import * as TE from 'fp-ts/TaskEither';
-import { eq, sql } from 'drizzle-orm';
+import { Injectable } from "@nestjs/common";
+import { pipe } from "fp-ts/function";
+import * as TE from "fp-ts/TaskEither";
 
+import { Database } from "@shared/database";
+import { InjectDb } from "@shared/decorators/database.inject";
 @Injectable()
 export class CityRepository {
   constructor(@InjectDb() private db: Database) {}

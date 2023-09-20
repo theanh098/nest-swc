@@ -1,24 +1,13 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { CatModule } from './cat/cat.module';
-import { DATABASE } from '@constants/token.constant';
-import { ConfigService } from '@nestjs/config';
-import { Database, getDb } from '~/shared/database';
+import { Module } from "@nestjs/common";
+
+import { AppController } from "./app.controller";
+import { AppService } from "./app.service";
+import { CatModule } from "./cat/cat.module";
+import { DrizzleModule } from "./drizzle/drizzle.module";
 
 @Module({
-  imports: [CatModule],
+  imports: [CatModule, DrizzleModule],
   controllers: [AppController],
-  providers: [
-    AppService,
-    {
-      provide: DATABASE,
-      useFactory: (configService: ConfigService): Database =>
-        getDb({
-          connectionString: configService.get<string>('DATABASE_URL')
-        }),
-      inject: [ConfigService]
-    }
-  ]
+  providers: [AppService]
 })
 export class AppModule {}

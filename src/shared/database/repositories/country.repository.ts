@@ -1,9 +1,11 @@
-import { Database } from '..';
-import { InjectDb } from '@decorators/database.inject';
-import { pipe } from 'fp-ts/function';
-import * as TE from 'fp-ts/TaskEither';
-import { country } from '../models/country.model';
-import { eq } from 'drizzle-orm';
+import { eq } from "drizzle-orm";
+import { pipe } from "fp-ts/function";
+import * as TE from "fp-ts/TaskEither";
+
+import { Database } from "@shared/database";
+import { InjectDb } from "@shared/decorators/database.inject";
+
+import { country } from "../models/country.model";
 
 export class CountryRepository {
   constructor(@InjectDb() private db: Database) {}
