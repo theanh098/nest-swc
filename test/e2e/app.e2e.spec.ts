@@ -2,7 +2,7 @@ import type { INestApplication } from "@nestjs/common";
 import type { TestingModule } from "@nestjs/testing";
 import { Test } from "@nestjs/testing";
 import * as request from "supertest";
-import { expect, test, beforeEach, it } from "vitest";
+import { beforeEach, it, test } from "vitest";
 
 import { AppModule } from "../../src/app.module";
 
