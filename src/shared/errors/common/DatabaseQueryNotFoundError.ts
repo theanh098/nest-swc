@@ -1,23 +1,29 @@
+import type { PgColumn } from "drizzle-orm/pg-core";
+
 import type { SwcTable } from "@root/shared/database";
 
 import type { AnyHow } from "../adapter";
 
 export const databaseQueryNotFoundErrorTag: unique symbol = Symbol(
-  "databaseQueryNotFound"
+  "databaseQueryNotFoundTag"
 );
 
-export type DatabaseQueryNotFoundError<T = number> = Readonly<{
+export type DatabaseQueryNotFoundError<V = number> = Readonly<{
   _tag: typeof databaseQueryNotFoundErrorTag;
-  filterColumn: string;
+  filterValue: V;
   table: SwcTable;
-  filterValue: T;
+  filterColumn: PgColumn;
 }>;
 
-export const databaseQueryNotFoundError = <T>(
-  filterColumn: string,
-  table: SwcTable,
-  filterValue: T
-): DatabaseQueryNotFoundError<T> => ({
+export const databaseQueryNotFoundError = <V>({
+  filterColumn,
+  filterValue,
+  table
+}: {
+  table: SwcTable;
+  filterColumn: PgColumn;
+  filterValue: V;
+}): DatabaseQueryNotFoundError<V> => ({
   _tag: databaseQueryNotFoundErrorTag,
   filterColumn,
   table,

@@ -13,17 +13,24 @@ import {
   countryCityRelations
 } from "@root/shared/database/models/country.model";
 
-const schema = {
+type ObjectValues<T> = T[keyof T];
+
+const tables = {
   city,
-  country,
+  country
+};
+
+const schema = {
+  ...tables,
   cityCountryRelations,
   countryCityRelations
 };
 
-export const drizzleSchema = pgSchema("drizzle");
-
 export type Database = NodePgDatabase<typeof schema>;
-export type SwcTable = "city" | "country";
+
+export type SwcTable = ObjectValues<typeof tables>;
+
+export const drizzleSchema = pgSchema("drizzle");
 
 export const getDb = (config: PoolConfig): Database => {
   const pool = new Pool(config);
