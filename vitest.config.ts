@@ -9,9 +9,6 @@ export default defineConfig({
     alias: {
       "@root": "./src"
     },
-    sequence: {
-      concurrent: true
-    },
     env: {
       POSTGRES_USER: "postgres",
       POSTGRES_DB: "swc_test_db",

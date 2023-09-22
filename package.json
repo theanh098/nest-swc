@@ -22,7 +22,7 @@
     "test:setup": "POSTGRES_USER=postgres POSTGRES_PASSWORD=test POSTGRES_DB=swc_test_db pnpm exec ts-node ./scripts/database.migrate.ts",
     "test:db:cleanup": "pnpm exec ts-node ./scripts/database.test.cleanup.ts",
     "pretest:database": "POSTGRES_USER=postgres POSTGRES_PASSWORD=test POSTGRES_DB=swc_test_db docker compose -f ./test-helper/docker-compose.yml up -d",
-    "test:database": "pnpm pretest:database && pnpm test:setup && TEST_DIR=database vitest run --sequence.shuffle && pnpm test:db:cleanup",
+    "test:database": "pnpm pretest:database && pnpm test:setup && TEST_DIR=database vitest run --sequence.shuffle --single-thread && pnpm test:db:cleanup",
     "db:push": "drizzle-kit push:pg",
     "db:pull": "drizzle-kit introspect:pg",
     "db:migrate": "drizzle-kit generate:pg",

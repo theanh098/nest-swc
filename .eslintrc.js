@@ -23,17 +23,17 @@ module.exports = {
   },
   ignorePatterns: [".eslintrc.js"],
   rules: {
-    "require-await": ["warn"],
-    "no-return-await": ["warn"],
+    "require-await": ["error"],
+    "no-return-await": ["error"],
     "no-loss-of-precision": "off",
-    "@typescript-eslint/await-thenable": ["warn"],
+    "@typescript-eslint/await-thenable": ["error"],
     "@typescript-eslint/switch-exhaustiveness-check": "error",
     "@typescript-eslint/interface-name-prefix": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-loss-of-precision": "error",
-    "@typescript-eslint/no-explicit-any": "warn",
-    "@typescript-eslint/no-unused-expressions": "warn",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-unused-expressions": "error",
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/consistent-type-exports": "error",
     "@typescript-eslint/no-import-type-side-effects": "error",
@@ -43,7 +43,7 @@ module.exports = {
       { customWordListFile: "./cspell-custom.txt" }
     ],
     "import-helpers/order-imports": [
-      "warn",
+      "error",
       {
         newlinesBetween: "always",
         groups: [
