@@ -17,8 +17,21 @@
     "strictBindCallApply": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "strict": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": false,
+    "noImplicitReturns": true,
+    "inlineSources": true,
+    "esModuleInterop": true,
+    "typeRoots": ["./node_modules/@types"],
+    "noErrorTruncation": true,
     "paths": {
       "@root/*": ["src/*"]
     }
+  },
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
   }
 }
