@@ -1,4 +1,3 @@
-import type { InferSelectModel } from "drizzle-orm";
 import { relations } from "drizzle-orm";
 import {
   integer,
@@ -9,8 +8,6 @@ import {
 } from "drizzle-orm/pg-core";
 
 import { country } from "./country.model";
-
-export type City = InferSelectModel<typeof city>;
 
 export const popularityEnum = pgEnum("popularity", [
   "unknown",

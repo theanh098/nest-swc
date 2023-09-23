@@ -1,8 +1,8 @@
-import { getDb } from "@root/shared/database";
+import { getDatabase } from "@root/shared/database";
 import { sql } from "drizzle-orm";
 
 async function main() {
-  const db = getDb({
+  const db = getDatabase({
     database: "swc_test_db",
     user: "postgres",
     password: "test",

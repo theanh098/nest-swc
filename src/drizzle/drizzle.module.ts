@@ -3,7 +3,7 @@ import { ConfigService } from "@nestjs/config";
 
 import { DATABASE } from "@root/shared/constants/token";
 import type { Database } from "@root/shared/database";
-import { getDb } from "@root/shared/database";
+import { getDatabase } from "@root/shared/database";
 import { CityRepository } from "@root/shared/database/repositories/city.repository";
 import { CountryRepository } from "@root/shared/database/repositories/country.repository";
 
@@ -16,7 +16,7 @@ import { CountryRepository } from "@root/shared/database/repositories/country.re
     {
       provide: DATABASE,
       useFactory: (configService: ConfigService): Database =>
-        getDb({
+        getDatabase({
           connectionString: configService.get<string>("DATABASE_URL")
         }),
       inject: [ConfigService]

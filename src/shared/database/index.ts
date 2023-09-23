@@ -32,7 +32,7 @@ export type SwcTable = ObjectValues<typeof tables>;
 
 export const drizzleSchema = pgSchema("drizzle");
 
-export const getDb = (config: PoolConfig): Database => {
+export const getDatabase = (config: PoolConfig): Database => {
   const pool = new Pool(config);
   return drizzle(pool, {
     schema: {

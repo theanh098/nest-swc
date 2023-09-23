@@ -1,10 +1,7 @@
-import type { InferSelectModel } from "drizzle-orm";
 import { relations } from "drizzle-orm";
 import { pgSchema, serial, uniqueIndex, varchar } from "drizzle-orm/pg-core";
 
 import { city } from "./city.model";
-
-export type Country = InferSelectModel<typeof country>;
 
 export const schema = pgSchema("drizzle");
 

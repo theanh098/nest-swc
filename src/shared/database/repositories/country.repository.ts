@@ -7,8 +7,8 @@ import type { DatabaseQueryError } from "@root/shared/errors/common/DatabaseQuer
 import { databaseQueryError } from "@root/shared/errors/common/DatabaseQueryError";
 import type { DatabaseQueryNotFoundError } from "@root/shared/errors/common/DatabaseQueryNotFoundError";
 import { databaseQueryNotFoundError } from "@root/shared/errors/common/DatabaseQueryNotFoundError";
+import type { Country } from "@root/shared/models/Country";
 
-import type { Country } from "../models/country.model";
 import { country } from "../models/country.model";
 
 export class CountryRepository {

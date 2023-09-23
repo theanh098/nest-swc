@@ -1,6 +1,6 @@
-import { getDb } from "@root/shared/database";
+import { getDatabase } from "@root/shared/database";
 
-export const testDatabase = getDb({
+export const testDatabase = getDatabase({
   database: process.env.POSTGRES_DB,
   user: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,

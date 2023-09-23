@@ -1,14 +1,11 @@
-import type { Config } from 'drizzle-kit';
+import type { Config } from "drizzle-kit";
+import "dotenv/config";
 
 export default {
-  schema: ['./src/shared/database/models/*'],
-  out: './drizzle',
-  driver: 'pg',
+  schema: ["./src/shared/database/models/*"],
+  out: "./drizzle",
+  driver: "pg",
   dbCredentials: {
-    database: 'drizzle_city',
-    host: 'localhost',
-    port: 5432,
-    password: 'vitaminc',
-    user: 'postgres'
+    connectionString: process.env.DATABASE_URL!
   }
 } satisfies Config;
