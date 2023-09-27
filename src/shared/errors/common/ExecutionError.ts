@@ -2,7 +2,7 @@ import * as E from "fp-ts/Either";
 
 import type { AnyHow } from "../adapter";
 
-export const executionErrorTag: unique symbol = Symbol("executionErrorTag");
+export const executionErrorTag: unique symbol = Symbol("ExecutionErrorTag");
 
 /**
  * Represent to any error.

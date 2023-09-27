@@ -5,7 +5,7 @@ import type { SwcTable } from "@root/shared/database";
 import type { AnyHow } from "../adapter";
 
 export const databaseQueryNotFoundErrorTag: unique symbol = Symbol(
-  "databaseQueryNotFoundTag"
+  "DatabaseQueryNotFoundTag"
 );
 
 export type DatabaseQueryNotFoundError<V = number> = Readonly<{

@@ -1,5 +1,5 @@
-import { NestFactory } from "@nestjs/core";
 import { ZodValidationPipe } from "@anatine/zod-nestjs";
+import { NestFactory } from "@nestjs/core";
 
 import { AppModule } from "./app.module";
 

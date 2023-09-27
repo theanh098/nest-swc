@@ -25,7 +25,7 @@ export const encodeCommonError = (
 ): InternalServerErrorException => {
   if (isDatabaseQueryError(err))
     return new InternalServerErrorException(
-      `Database query error, reason: ${err.reason}`
+      `Database query error, reason: ${JSON.stringify(err.reason)}`
     );
 
   if (isDatabaseQueryNotFoundError(err))
@@ -34,6 +34,6 @@ export const encodeCommonError = (
     );
 
   return new InternalServerErrorException(
-    `Execution context error occurs, reason: ${err.reason}`
+    `Execution context error occurs, reason: ${JSON.stringify(err.reason)}`
   );
 };

@@ -3,7 +3,7 @@ import * as E from "fp-ts/Either";
 import type { AnyHow } from "../adapter";
 
 export const databaseQueryErrorTag: unique symbol = Symbol(
-  "databaseQueryErrorTag"
+  "DatabaseQueryErrorTag"
 );
 
 export type DatabaseQueryError = Readonly<{
