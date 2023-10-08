@@ -1,3 +1,3 @@
 export type AnyHow = Readonly<{
-  _tag: Symbol;
+  _tag: symbol;
 }>;

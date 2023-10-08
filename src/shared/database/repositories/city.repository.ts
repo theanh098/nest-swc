@@ -8,9 +8,9 @@ import type { DatabaseQueryError } from "@root/shared/errors/common/DatabaseQuer
 import { databaseQueryError } from "@root/shared/errors/common/DatabaseQueryError";
 import type { DatabaseQueryNotFoundError } from "@root/shared/errors/common/DatabaseQueryNotFoundError";
 import { databaseQueryNotFoundError } from "@root/shared/errors/common/DatabaseQueryNotFoundError";
+import type { City } from "@root/shared/IO/City";
 
 import { city } from "../models/city.model";
-import { City } from "@root/shared/IO/City";
 
 @Injectable()
 export class CityRepository {

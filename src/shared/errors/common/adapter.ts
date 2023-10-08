@@ -1,11 +1,11 @@
 import { InternalServerErrorException } from "@nestjs/common";
 import { getTableConfig } from "drizzle-orm/pg-core";
-import { DatabaseQueryError, isDatabaseQueryError } from "./DatabaseQueryError";
-import {
-  DatabaseQueryNotFoundError,
-  isDatabaseQueryNotFoundError
-} from "./DatabaseQueryNotFoundError";
-import { ExecutionError } from "./ExecutionError";
+
+import type { DatabaseQueryError } from "./DatabaseQueryError";
+import { isDatabaseQueryError } from "./DatabaseQueryError";
+import type { DatabaseQueryNotFoundError } from "./DatabaseQueryNotFoundError";
+import { isDatabaseQueryNotFoundError } from "./DatabaseQueryNotFoundError";
+import type { ExecutionError } from "./ExecutionError";
 
 export type CommonError =
   | ExecutionError
