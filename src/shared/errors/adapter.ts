@@ -8,6 +8,7 @@ import {
   type DatabaseQueryNotFoundError
 } from "./common/DatabaseQueryNotFoundError";
 import type { ExecutionError } from "./common/ExecutionError";
+import { getTableConfig } from "drizzle-orm/pg-core";
 
 export type AnyHow = CommonError;
 
@@ -25,15 +26,17 @@ export const encodeCommonError = (
 ): InternalServerErrorException => {
   if (isDatabaseQueryError(err))
     return new InternalServerErrorException(
-      `Database query error, reason: ${JSON.stringify(err.reason)}`
+      `Database query error, with reason: ${JSON.stringify(err.reason)}`
     );
 
   if (isDatabaseQueryNotFoundError(err))
     return new InternalServerErrorException(
-      `Not found records on table ${err.table._.name} with ${err.filterColumn._.name} is '${err.filterValue}'`
+      `Not found records on table ${getTableConfig(err.table).name} with ${
+        err.filterColumn.name
+      } is '${err.filterValue}'`
     );
 
   return new InternalServerErrorException(
-    `Execution context error occurs, reason: ${JSON.stringify(err.reason)}`
+    `Execution context error occurs, with reason: ${JSON.stringify(err.reason)}`
   );
 };

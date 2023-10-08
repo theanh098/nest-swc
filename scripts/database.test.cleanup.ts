@@ -1,12 +1,10 @@
 import { getDatabase } from "@root/shared/database";
 import { sql } from "drizzle-orm";
+import { TEST_DATABASE_CONNECTION } from "test-helper/database.test.client";
 
 async function main() {
   const db = getDatabase({
-    database: "swc_test_db",
-    user: "postgres",
-    password: "test",
-    port: 5432
+    connectionString: TEST_DATABASE_CONNECTION
   });
 
   const tables = Object.keys(db._.tableNamesMap);

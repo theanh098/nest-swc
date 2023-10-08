@@ -2,9 +2,8 @@ import { Controller, Get, Param } from "@nestjs/common";
 import { pipe } from "fp-ts/function";
 import * as TE from "fp-ts/TaskEither";
 
-import { encodeError } from "@root/shared/errors/adapter";
-
 import { CountryService } from "./country.service";
+import { encodeError } from "@root/shared/errors/adapter";
 
 @Controller("country")
 export class CountryController {

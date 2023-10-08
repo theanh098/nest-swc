@@ -9,6 +9,6 @@ services:
       POSTGRES_DB: $POSTGRES_DB
       POSTGRES_USER: $POSTGRES_USER
     ports:
-      - "5432:5432"
+      - "6000:5432"
     labels:
       com.swc.kind: "db"
