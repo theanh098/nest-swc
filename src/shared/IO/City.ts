@@ -1,3 +1,3 @@
 import type { city } from "../database/models/city.model";
 
-export type City = typeof city.$inferSelect;
+export type City = Readonly<typeof city.$inferSelect>;

@@ -1,5 +1,6 @@
 import type { HttpException } from "@nestjs/common";
 import { InternalServerErrorException } from "@nestjs/common";
+import { getTableConfig } from "drizzle-orm/pg-core";
 
 import type { DatabaseQueryError } from "./common/DatabaseQueryError";
 import { isDatabaseQueryError } from "./common/DatabaseQueryError";
@@ -8,7 +9,6 @@ import {
   type DatabaseQueryNotFoundError
 } from "./common/DatabaseQueryNotFoundError";
 import type { ExecutionError } from "./common/ExecutionError";
-import { getTableConfig } from "drizzle-orm/pg-core";
 
 export type AnyHow = CommonError;
 
