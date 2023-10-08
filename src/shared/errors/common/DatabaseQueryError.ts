@@ -1,6 +1,6 @@
 import * as E from "fp-ts/Either";
 
-import type { AnyHow } from "../adapter";
+import type { AnyHow } from "..";
 
 export const databaseQueryErrorTag: unique symbol = Symbol(
   "DatabaseQueryErrorTag"

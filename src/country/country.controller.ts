@@ -2,9 +2,8 @@ import { Controller, Get, Param } from "@nestjs/common";
 import { pipe } from "fp-ts/function";
 import * as TE from "fp-ts/TaskEither";
 
-import { encodeError } from "@root/shared/errors/adapter";
-
 import { CountryService } from "./country.service";
+import { encodeCommonError } from "@root/shared/errors/common/adapter";
 
 @Controller("country")
 export class CountryController {
@@ -16,7 +15,7 @@ export class CountryController {
       this.countryService.getCountry(+id),
       TE.match(
         err => {
-          throw encodeError(err);
+          throw encodeCommonError(err);
         },
         res => res
       )

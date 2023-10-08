@@ -2,7 +2,7 @@ import type { PgColumn } from "drizzle-orm/pg-core";
 
 import type { SwcTable } from "@root/shared/database";
 
-import type { AnyHow } from "../adapter";
+import type { AnyHow } from "..";
 
 export const databaseQueryNotFoundErrorTag: unique symbol = Symbol(
   "DatabaseQueryNotFoundTag"
