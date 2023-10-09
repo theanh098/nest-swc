@@ -3,17 +3,11 @@ import { pgTable, serial, uniqueIndex, varchar } from "drizzle-orm/pg-core";
 
 import { city } from "./city.model";
 
-export const country = pgTable(
-  "countries",
-  {
-    id: serial("id").primaryKey(),
-    name: varchar("name", { length: 256 }).unique(),
-    thoanh: varchar("thoanh", { length: 26 })
-  },
-  country => ({
-    nameIndex: uniqueIndex("name_idx").on(country.name)
-  })
-);
+export const country = pgTable("countries", {
+  id: serial("id").primaryKey(),
+  name: varchar("name", { length: 50 }).notNull().unique(),
+  popularity: varchar("popularity", { length: 26 }).notNull()
+});
 
 export const countryCityRelations = relations(country, ({ many }) => ({
   city: many(city)

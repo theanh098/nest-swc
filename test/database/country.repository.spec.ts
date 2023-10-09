@@ -31,7 +31,6 @@ describe("CountryRepository", () => {
     beforeEach(async () => {
       await testDatabase.insert(country).values({
         name: "India",
-        thoanh: "cute",
         id: 1
       });
     });
@@ -51,7 +50,6 @@ describe("CountryRepository", () => {
             data => {
               expect(data).toEqual({
                 name: "India",
-                thoanh: "cute",
                 id: 1
               });
             }

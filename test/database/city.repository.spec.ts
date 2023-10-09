@@ -19,7 +19,6 @@ describe("CityRepository", () => {
     beforeEach(async () => {
       await testDatabase.insert(country).values({
         name: "India",
-        thoanh: "cute",
         id: 1
       });
 

@@ -11,9 +11,11 @@ export const popularityEnum = pgEnum("popularity", [
 
 export const city = pgTable("cities", {
   id: serial("id").primaryKey(),
-  name: varchar("name", { length: 256 }),
-  popularity: popularityEnum("popularity"),
-  countryId: integer("country_id").references(() => country.id)
+  name: varchar("name", { length: 256 }).notNull(),
+  popularity: popularityEnum("popularity").notNull().default("unknown"),
+  countryId: integer("country_id")
+    .notNull()
+    .references(() => country.id)
 });
 
 export const cityCountryRelations = relations(city, ({ one }) => ({

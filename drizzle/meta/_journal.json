@@ -1,0 +1,13 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1696859300491,
+      "tag": "0000_futuristic_mockingbird",
+      "breakpoints": true
+    }
+  ]
+}
