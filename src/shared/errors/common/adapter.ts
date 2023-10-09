@@ -23,8 +23,8 @@ export const encodeCommonError = (
   if (isDatabaseQueryNotFoundError(err))
     return new InternalServerErrorException(
       `Not found records on table ${getTableConfig(err.table).name} with ${
-        err.filterColumn.name
-      } is '${err.filterValue}'`
+        err.target.column.name
+      } is '${err.target.value}'`
     );
 
   return new InternalServerErrorException(

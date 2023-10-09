@@ -31,9 +31,11 @@ export class CountryRepository {
       TE.chainW(
         TE.fromNullable(
           databaseQueryNotFoundError({
-            filterColumn: country.id,
             table: country,
-            filterValue: id
+            target: {
+              column: country.id,
+              value: id
+            }
           })
         )
       )

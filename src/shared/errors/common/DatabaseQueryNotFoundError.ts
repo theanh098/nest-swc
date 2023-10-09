@@ -10,24 +10,26 @@ export const databaseQueryNotFoundErrorTag: unique symbol = Symbol(
 
 export type DatabaseQueryNotFoundError<V = number> = Readonly<{
   _tag: typeof databaseQueryNotFoundErrorTag;
-  filterValue: V;
   table: SwcTable;
-  filterColumn: PgColumn;
+  target: {
+    column: PgColumn;
+    value: V;
+  };
 }>;
 
 export const databaseQueryNotFoundError = <V>({
-  filterColumn,
-  filterValue,
-  table
+  table,
+  target
 }: {
   table: SwcTable;
-  filterColumn: PgColumn;
-  filterValue: V;
+  target: {
+    column: PgColumn;
+    value: V;
+  };
 }): DatabaseQueryNotFoundError<V> => ({
   _tag: databaseQueryNotFoundErrorTag,
-  filterColumn,
   table,
-  filterValue
+  target
 });
 
 export const isDatabaseQueryNotFoundError = (
