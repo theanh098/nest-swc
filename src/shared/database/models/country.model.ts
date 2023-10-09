@@ -1,11 +1,9 @@
 import { relations } from "drizzle-orm";
-import { pgSchema, serial, uniqueIndex, varchar } from "drizzle-orm/pg-core";
+import { pgTable, serial, uniqueIndex, varchar } from "drizzle-orm/pg-core";
 
 import { city } from "./city.model";
 
-export const schema = pgSchema("drizzle");
-
-export const country = schema.table(
+export const country = pgTable(
   "countries",
   {
     id: serial("id").primaryKey(),

@@ -1,11 +1,5 @@
 import { relations } from "drizzle-orm";
-import {
-  integer,
-  pgEnum,
-  pgSchema,
-  serial,
-  varchar
-} from "drizzle-orm/pg-core";
+import { integer, pgEnum, pgTable, serial, varchar } from "drizzle-orm/pg-core";
 
 import { country } from "./country.model";
 
@@ -15,7 +9,7 @@ export const popularityEnum = pgEnum("popularity", [
   "popular"
 ]);
 
-export const city = pgSchema("drizzle").table("cities", {
+export const city = pgTable("cities", {
   id: serial("id").primaryKey(),
   name: varchar("name", { length: 256 }),
   popularity: popularityEnum("popularity"),

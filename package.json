@@ -19,14 +19,14 @@
     "test:e2e": "TEST_DIR=e2e vitest run",
     "test:cov": "vitest run --coverage",
     "test:debug": "vitest --inspect-brk --inspect --logHeapUsage --threads=false",
-    "test:setup": "TARGET=TEST pnpm exec ts-node ./scripts/database.migrate.ts",
+    "test:setup": "pnpm db:migrate && TARGET=TEST pnpm exec ts-node ./scripts/database.migrate.ts && rm -rf drizzle",
     "test:db:cleanup": "pnpm exec ts-node ./scripts/database.test.cleanup.ts",
     "pretest:database": "POSTGRES_USER=postgres POSTGRES_PASSWORD=test POSTGRES_DB=db_test docker compose -f ./test-helper/docker-compose.yml up -d",
     "test:database": "pnpm pretest:database && pnpm test:setup && TEST_DIR=database vitest run --sequence.shuffle --single-thread && pnpm test:db:cleanup",
     "db:push": "drizzle-kit push:pg",
     "db:pull": "drizzle-kit introspect:pg",
     "db:migrate": "drizzle-kit generate:pg",
-    "db:sync": "pnpm exec ts-node ./scripts/database.migrate.ts"
+    "db:sync": "pnpm exec drizzle-kit push:pg"
   },
   "dependencies": {
     "@anatine/zod-nestjs": "^2.0.3",
